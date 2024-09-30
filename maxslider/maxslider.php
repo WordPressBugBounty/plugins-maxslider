@@ -5,7 +5,7 @@
  * Description: MaxSlider is a free WordPress slider plugin that lets you create responsive sliders for your website. Shortcode and Visual Composer support included.
  * Author: The CSSIgniter Team
  * Author URI: https://www.cssigniter.com
- * Version: 1.2.3
+ * Version: 1.2.4
  * Text Domain: maxslider
  * Domain Path: languages
  *
@@ -36,7 +36,7 @@ class MaxSlider {
 	 * @var string
 	 * @since 1.0.0
 	 */
-	public static $version = '1.2.3';
+	public static $version = '1.2.4';
 
 	/**
 	 * Instance of this class.
@@ -1615,7 +1615,6 @@ class MaxSlider {
 			'template' => '',
 		), $atts, $tag );
 
-
 		$id = intval( $atts['id'] );
 		$id = apply_filters( 'wpml_object_id', $id, $this->post_type, true );
 
@@ -1624,13 +1623,13 @@ class MaxSlider {
 			return '';
 		}
 
-		$slider['template'] = $atts['template'];
+		$slider['template'] = sanitize_key( $atts['template'] );
 
 		ob_start();
 
-		$this->get_template_part( 'slider', $atts['template'], array(
+		$this->get_template_part( 'slider', $slider['template'], array(
 			'slider'   => $slider,
-			'template' => $atts['template'],
+			'template' => $slider['template'],
 		) );
 
 		$output = ob_get_clean();

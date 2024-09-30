@@ -2,8 +2,8 @@
 Contributors: cssigniterteam, anastis, silencerius, tsiger
 Tags: content slider, gallery slider, image slider, layer slider, Photo Slider, responsive slider, slide, slider, slider plugin, slideshow, wordpress slider, wordpress slideshow
 Requires at least: 5.0
-Tested up to: 6.4
-Stable tag: 1.2.3
+Tested up to: 6.6
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ Check out [the demo](https://www.cssigniter.com/preview/maxslider/) now!
 1. The MaxSlider Interface
 
 == Changelog ==
+= 1.2.4 =
+* Sanitize shortcode parameter to avoid potential Local File Inclusion (LFI) vulnerabilities.
+
 = 1.2.3 =
 * Fixed issue where since the iframe-ing of the block editor in WP 6.3, block editor assets would not get enqueued under specific circumstances.
 * Block editor assets are now enqueued via the 'enqueue_block_assets' action instead of 'enqueue_block_editor_assets'.
